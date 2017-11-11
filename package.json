@@ -24,8 +24,8 @@
     "url-loader": "^0.6.2",
     "vue-loader": "^11.3.4",
     "vue-template-compiler": "^2.2.6",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.0"
+    "webpack": "^3.4.0",
+    "webpack-dev-server": "^2.6.1"
   },
   "dependencies": {
     "mint-ui": "^2.2.10",

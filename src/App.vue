@@ -85,7 +85,7 @@
     export default{
         data(){   //等价于es5的 data:function () {}
             return{
-                msg:'Hello Vuejs'
+                msg:'Hello Vuejs2222'
             }
         },
         created(){
@@ -93,7 +93,7 @@
         },
         methods:{
             tip:function () {
-                Toast('你好！')
+                Toast('你好吗？')
             }
         }
     }

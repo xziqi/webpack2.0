@@ -24,11 +24,12 @@ module.exports={
                 test:/\.(png|jpg|gif|ttf)$/,
                 loader:'url-loader?limit=20000'
             },
-            {
-                test:/\.js$/,
-                loader:'babel-loader',
-                exclude:/node_modules/
-            },
+            //webpack2.0本身支持es6转成es5，所以这里不用配置babel
+            // {
+            //     test:/\.js$/,
+            //     loader:'babel-loader',
+            //     exclude:/node_modules/
+            // },
             {
                 test:/.vue$/,
                 loader:'vue-loader'
@@ -42,8 +43,9 @@ module.exports={
             template:'index1.html'
         })
     ],
-    babel:{
-        presets:['es2015'],
-        plugins:['transform-runtime']
-    }
+    //webpack2.0本身支持es6转成es5，所以这里不用配置babel
+    // babel:{
+    //     presets:['es2015'],
+    //     plugins:['transform-runtime']
+    // }
 }
