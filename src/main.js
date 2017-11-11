@@ -1,33 +1,40 @@
-var in1=document.querySelector("#in1");
-var in2=document.querySelector("#in2");
-var btn=document.querySelector("#btn");
-var res=document.querySelector("#res");
- 
-import addObj from './calc.js'
+// 1.es6语法，导入Vue,凡是使用npm安装的包 引入的时候都不需要写相对路径 只需要写包名即可
+import Vue from 'vue';
+//2. 导入App.vue的vue对象
+import App from './App.vue';
 
-btn.onclick=function () {
-    var val1=parseFloat(in1.value);
-    var val2=parseFloat(in2.value);
-    res.value=addObj.add(val1,val2)
-   /* // es5语法
-    var add = require('./calc.js');
-    res.value=add(val1,val2)*/
-}
-/*
-//es5语法
-//css打包
-require('../statics/css/site.css')
-// sass打包
-require('../statics/css/site1.scss')
-// less打包
-require('../statics/css/site2.less')
-// url打包
-require('../statics/imgs/logo.png')
-require('../statics/imgs/bg.png')*/
+//4.集成vue-router到这个项目表中
+import vueRouter from 'vue-router';
+// 4.1将vueRouter对象绑定到Vue对象上
+Vue.use(vueRouter);
+//4.3引入模板
+import login from './components/account/login.vue';
+import register from './components/account/register.vue';
 
-//es6语法
-import '../statics/css/site.css'
-import '../statics/css/site1.scss'
-import '../statics/css/site2.less'
-import '../statics/imgs/logo.png'
-import '../statics/imgs/bg.png'
+//4.2定义路由规则
+var router=new vueRouter({
+    routes:[
+        {path:'/login',component:login},
+        {path:'/register',component:register}
+    ]
+})
+
+// 5.导入mint-ui
+//导入mint-ui中的css
+import 'mint-ui/lib/style.min.css'
+import mintui from 'mint-ui';
+//5.1在vue 中注册mint-ui
+Vue.use(mintui);
+//5.2按需导入button
+import { Button } from 'mint-ui';
+
+// 6.导入mui的 css
+import '../statics/mui/css/mui.css'
+// 3.利用Vue对象进行解析渲染
+new Vue({
+    el:'#app',
+    //使用路由对象实例
+    router,
+    //render:function (create) {create(App) } //将App对象导入进来
+    render:c=>c(App)  //es6的函数写法   =>goes to 语法
+})
